@@ -15,25 +15,19 @@
     
     {{!-- Need to add style to this section, just place holder right now --}}
     <header class="display-flex justify-space-between align-center p-2">
+      {{!-- Need image source for logo --}}
       <img src="" alt="Chicken Boolean logo">
       <h1>
         <a href="/">Chicken Boolean</a>
       </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/myPage">My Page</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
     </header>
 
     {{!-- Need to add style to this section, just place holder right now --}}
     <main class="container container-fluid mt-5"> 
       <!-- Render the sub layout -->
+      {{!--  Will change based off what view they are logged in  --}}
       {{{ body }}}
+      
     </main>
 
     <footer>
