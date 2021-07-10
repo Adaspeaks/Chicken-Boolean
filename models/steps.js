@@ -6,7 +6,7 @@ class Steps extends Model {}
 Steps.init(
   {
     id: {
-      type: DataTypes.INTERGER,
+      type: DataTypes.INTEGER,
       AllowNull: false,
       primaryKey: true,
       references: {
@@ -15,7 +15,7 @@ Steps.init(
       },
     },
     number: {
-      type: DataTypes.INTERGER,
+      type: DataTypes.INTEGER,
       AllowNull: false,
     },
     instruction: {
