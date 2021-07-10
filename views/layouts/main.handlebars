@@ -1,44 +1,53 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicken Boolean</title>
-  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}} 
-  {{!-- <link rel="stylesheet" href="/css/style.css"> --}}
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chicken Boolean</title>
+    {{! <link rel="stylesheet" href="/css/jass.css"> }}
+    {{! <link rel="stylesheet" href="/css/style.css"> }}
+  </head>
 
-<body>
-  {{!-- Need to add style to this section, just place holder right now --}}
-  <div class="flex-column justify-space-around">
-    
-    {{!-- Need to add style to this section, just place holder right now --}}
-    <header class="display-flex justify-space-between align-center p-2">
-      {{!-- Need image source for logo --}}
-      <img src="" alt="Chicken Boolean logo">
-      <h1>
-        <a href="/">Chicken Boolean</a>
-      </h1>
-    </header>
+  <body>
+    {{! Need to add style to this section, just place holder right now }}
+    <div class="flex-column justify-space-around">
 
-    {{!-- Need to add style to this section, just place holder right now --}}
-    <main class="container container-fluid mt-5"> 
-      <!-- Render the sub layout -->
-      {{!--  Will change based off what view they are logged in  --}}
-      {{{ body }}}
-      
-    </main>
+      {{! Need to add style to this section, just place holder right now }}
+      <header class="display-flex justify-space-between align-center p-2">
+        {{! Need image source for logo }}
+        <img src="" alt="Chicken Boolean logo" />
+        <h1>
+          <a href="/">Chicken Boolean</a>
+        </h1>
+        <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a href="/myPage">My Page</a>
+            |
+            <button class="no-button" id="logout">logout</button>
+          {{else}}
+            <a href="/login">login</a>
+          {{/if}}
+        </nav>
+      </header>
 
-    <footer>
-      
-    </footer>
-  </div>
+      {{! Need to add style to this section, just place holder right now }}
+      <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{!  Will change based off what view they are logged in  }}
+        {{{body}}}
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+      </main>
+
+      <footer>
+
+      </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
 
 </html>
