@@ -1,42 +1,25 @@
 {{! Place mission and search recipe area here }}
 <div id="missionCard">
   <h2>Chicken Boolean Mission</h2>
-  <p class=>Here at Chicken Boolean, we know having the same meal day in and day out
-    can get old. So we make it easy for you to add some variety in your daily
-    meals.</p>
+  <p class>Here at Chicken Boolean, we know having the same meal day in and day
+    out can get old. So we make it easy for you to add some variety in your
+    daily meals.</p>
   <P>By using our state of the art search engine, you can find the right meal
     that you desire. Find something you like but don't want to try right now,
     then save it in your personal account to easily access later.</P>
 </div>
 <div id="searchCard">
 
-<form>
-        <div id="searchArea">
-          <label for="recipeSearch">Search for a Recipe</label>
-          <input
-            type="text"
-            class="recipeQuery"
-            id="recipeSearch"
-            placeholder="Search for a Recipe"
-          />
-          <input type="checkbox" id="vegetarian" name="vegetarian" value="Vegetarian">
-          <label for="vegetarian"> Want vegetarian meals?</label><br>
-          <input type="checkbox" id="vegan" name="vegan" value="Vegan">
-          <label for="vegan"> Want vegan meals?</label><br>
-          <input type="checkbox" id="glutenFree" name="glutenFree" value="GlutenFree">
-          <label for="glutenFree"> Want gluten-free meals?</label>
-          <input type="checkbox" id="dairyFree" name="dairyFree" value="DairyFree">
-          <label for="DairyFree"> Want dairy-free meals?</label>
-
-          <button type="button" id="searchBtn" value="Search">Search</button>
-        </div>
-      </form>
-
+  {{> searchRecipe}}
+  {{#if recipes}}
   <ul class="recipe_list">
-    {{#each recipe}}
-      <li>{{this}}</li>
-      <p>{{#if this}}{{this}}{{else}}No Search Results{{/if}}</p>
+    {{#each recipes as |recipe|}}
+      <li>{{recipe.title}}
+        {{!-- create save button button, find icon details --}}
+        <button class="button saveBtn">Icon</button>
+      </li>
     {{/each}}
   </ul>
+    {{else}}No Search Results{{/if}}
 
 </div>
