@@ -7,23 +7,28 @@ document.querySelector("#searchBtn").addEventListenter("click", getRecipe);
 router.get("/:search", async (req, res) => {
   try {
     const recipeSearch = await Recipe(
-      title = req.params.title,
-       id = req.params.id,
-      vegetartian = req.params.is_vegetarian,
-      vegan = req.params.is_vegan,
-      gluten_free = req.params.is_glutenFree,
-      dairy_free = req.params.is_dairyFree
+      (title = req.params.title),
+      (id = req.params.id),
+      (vegetartian = req.params.is_vegetarian),
+      (vegan = req.params.is_vegan),
+      (gluten_free = req.params.is_glutenFree),
+      (dairy_free = req.params.is_dairyFree)
     );
 
     const dietdropdown = document.getElementById(vegSEL);
     const diet = dietdropdown.options[dietdropdown.selectedindex].text;
 
-    const dairyFree = document.querySelector(`#dairyFree:checked`).val = "dairy,";
-    const glutenFree = document.querySelector(`#glutenFree:checked`).val = "gluten,";
+    const dairyFree = (document.querySelector(`#dairyFree:checked`).val =
+      "dairy,");
+    const glutenFree = (document.querySelector(`#glutenFree:checked`).val =
+      "gluten,");
 
     const searchTerm = document.getElementById(`searchArea`).val;
 
-    const recipeData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOON_API}&addRecipeInformation=true&diet=${diet}&intolerances=${dairyFree}${glutenFree}&query=${searchTerm}`)
+    const recipeData = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOON_API}&addRecipeInformation=true&diet=${diet}&intolerances=${dairyFree}${glutenFree}&query=${searchTerm}`
+    );
+    res.json(recipeData.data.results);
     if (!recipeTitle) {
       res.status(404).json({ message: "No recipe available" });
       return;
