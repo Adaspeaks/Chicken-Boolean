@@ -3,7 +3,9 @@ const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
-  res.render("homepage");
+  res.render("homepage", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get("/login", (req, res) => {
@@ -33,7 +35,7 @@ router.get("/mypage", withAuth, async (req, res) => {
 
     res.render("mypage", {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
