@@ -1,0 +1,10 @@
+.recipe-form {
+  padding: 20px 35px;
+  background color: var(tertiary-color);
+  background-image: url("../images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-position: 80%;
+
+ 
