@@ -9,7 +9,7 @@ const formdata = { searchButton = document.getElementById("#searchBtn"),
  searchTerm = req.params.search,
 };
  const configObj ={
-  method: "POST",
+  method: "GET",
   headers: { "content-type": "application/json", acccept: "application/json" },
   body: JSON.stringify(formdata),
 };
@@ -21,6 +21,9 @@ fetch("/api/search/", configObj)
 .then (function(object){
     console.log(object);
 })
+.catch(function(error){
+    console.log(error.message);
+});
 searchButton.addEventListener("click", function () {
   if (searchField.value == "") {
     console.log("no search query found");
