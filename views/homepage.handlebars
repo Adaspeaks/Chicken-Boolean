@@ -15,18 +15,10 @@
     <h2 class="card-title">Search for Recipes</h2>
     <div class="card-body">
       {{> searchRecipe}}
-      {{#if recipes}}
       <ul class="list-group list-group-flush border-dark border-2" id="recipe_list">
-        {{#each recipes as |recipe|}}
-          <li class="list-group-item">{{recipe.title}}
-            {{!-- create save button button, find icon details --}}
-            <button class="button saveBtn">Save</button>
-          </li>
-        {{/each}}
-        {{else}}No Search Results{{/if}}
+
       </ul>
     </div>
   </div>
 </div>
 <script src="js/search.js"></script>
-<script src="js/saveRecipe.js"></script>

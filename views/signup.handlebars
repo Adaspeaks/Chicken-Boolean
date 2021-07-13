@@ -1,24 +1,36 @@
 <div class="row">
   <div class="card w-50 mx-auto">
     <h2 class="mx-auto">Create New Account</h2>
-    <form class="form login-form card-body">
+    <form id="signup" class="form card-body">
       <div class="form-floating">
-        <input class="form-control my-1" type="text" id="username" placeholder="Username">
+        <input
+          class="form-control my-1"
+          type="text"
+          id="username"
+          placeholder="Username"
+        />
         <label for="username-login">Create Username</label>
       </div>
       <div class="form-floating">
-        <input class="form-control my-1" type="password" id="password" placeholder="Password">
+        <input
+          class="form-control my-1"
+          type="password"
+          id="password"
+          placeholder="Password"
+        />
         <label for="password-login">Create New Password</label>
       </div>
-      {{!-- <div class="form-floating">
+      {{! <div class="form-floating">
         <input class="form-control my-1" type="password" id="password-create2" placeholder="Password">
         <label for="password-login">Retype New Password</label>
-      </div> --}}
+      </div> }}
       <div>
         <div class="form-group d-grid col-4 mx-auto">
-          <button class="my-1" type="submit" id="createbtn" >Create Account</button>
+          <button class="my-1" type="submit" id="createbtn">Create Account</button>
         </div>
       </div>
     </form>
   </div>
 </div>
+
+<script src="./js/createAcc.js"></script>
