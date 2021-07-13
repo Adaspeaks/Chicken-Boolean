@@ -35,10 +35,13 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.create({ where: {
-       name: req.body.username,
-       password: req.body.password,
-    } });
+    const userData = await User.create(req.body);
+  //     { 
+  //     where: {
+  //      name: req.body.username,
+  //      password: req.body.password,
+  //   } 
+  // });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
