@@ -1,0 +1,25 @@
+<div class="container row">
+  <div class="col card w-80 m-3" id="searchCard">
+    <h2 class="card-title">Saved Recipes</h2>
+    <div class="card-body">
+      {{#if recipes}}
+      <ul class="list-group list-group-flush border-dark border-2" id="recipe_list">
+        {{#each recipes as |recipe|}}
+          <a class="list-group-item">{{recipe.title}}
+            {{!-- create save button button, find icon details --}}
+            <button class="button deleteBtn">Delete</button>
+          </a>
+        {{/each}}
+        {{else}}No Saved Recipes{{/if}}
+      </ul>
+    </div>
+  </div>
+    
+    <div class="col card w-80 m-3" id="missionCard">
+      <h2 class="card-title">Recipe Summary</h2>
+      <div class="container card-body border-dark border-2" id="mission">
+        <p>{{recipe.summary}}</p>
+      </div>
+    </div>
+
+</div>

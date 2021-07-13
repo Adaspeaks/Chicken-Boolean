@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS chickenBoolean_db;
-CREATE DATABASE chickenBoolean_db;
+DROP DATABASE IF EXISTS user_db;
+CREATE DATABASE user_db;

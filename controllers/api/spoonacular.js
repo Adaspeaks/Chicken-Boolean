@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Steps, Recipe } = require("../../models");
 const axios = require("axios").default;
-const withAuth = require("../utils/auth");
+const withAuth = require("../../utils/auth");
 
 router.get(`/:`, async (req, res) => {
   try {
