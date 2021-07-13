@@ -3,7 +3,9 @@ const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
-  res.render("homepage");
+  res.render("homepage", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get("/login", (req, res) => {
@@ -23,17 +25,20 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/search", withAuth, async (req, res) => {
+  try {
+    res.render("search", {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/mypage", withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: [`password`] },
-      include: [{ model: recipe }],
-    });
-    const user = userData.get({ plain: true });
-
     res.render("myPage", {
-      ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
