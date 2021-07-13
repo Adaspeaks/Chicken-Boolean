@@ -12,7 +12,7 @@
   <body>
     <div class="flex-column justify-space-around">
 
-      <header class="container row">
+      <header class="container row" id="header">
         <div class="col-2">
         <img src="/assets/CBoolean.png" class="img-fluid img-thumbnail" alt="Chicken Boolean logo" />
         </div>
@@ -25,9 +25,9 @@
         {{#if logged_in}}
           <a href="/myPage">My Page</a>
           |
-          <button class="no-button" id="logout">logout</button>
+          <button class="no-button" id="logout">Logout</button>
         {{else}}
-          <a href="/login">login</a>
+          <a href="/login">Login</a>
         {{/if}}
       </nav>
 
