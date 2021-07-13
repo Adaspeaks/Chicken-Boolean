@@ -1,26 +1,31 @@
 {{! Place mission and search recipe area here }}
-<div class=id="missionCard">
-  <h2>Chicken Boolean Mission</h2>
-  <p class>Here at Chicken Boolean, we know having the same meal day in and day
-    out can get old. So we make it easy for you to add some variety in your
-    daily meals.</p>
-  <p>By using our state of the art search engine, you can find the right meal
-    that you desire. Find something you like but don't want to try right now,
-    then save it in your personal account to easily access later.</p>
-</div>
+<div class="container row">
+    <div class="col card w-80 m-3" id="missionCard">
+      <h2 class="card-title">Chicken Boolean Mission</h2>
+      <div class="card-body border-dark border-2">
+        <p class>Here at Chicken Boolean, we know having the same meal day in and day
+          out can get old. So we make it easy for you to add some variety in your
+          daily meals.</p>
+        <p>By using our state of the art search engine, you can find the right meal
+          that you desire. Find something you like but don't want to try right now,
+          then save it in your personal account to easily access later.</p>
+      </div>
+    </div>
 
-<div id="searchCard">
-
-  {{> searchRecipe}}
-  {{#if recipes}}
-  <ul class="recipe_list">
-    {{#each recipes as |recipe|}}
-      <li>{{recipe.title}}
-        {{!-- create save button button, find icon details --}}
-        <button class="button saveBtn">Icon</button>
-      </li>
-    {{/each}}
-  </ul>
-    {{else}}No Search Results{{/if}}
-
+  <div class="col card w-80 m-3" id="searchCard">
+    <h2 class="card-title">Search for Recipes</h2>
+    <div class="card-body">
+      {{> searchRecipe}}
+      {{#if recipes}}
+      <ul class="list-group list-group-flush border-dark border-2" id="recipe_list">
+        {{#each recipes as |recipe|}}
+          <li class="list-group-item">{{recipe.title}}
+            {{!-- create save button button, find icon details --}}
+            <button class="button saveBtn">Icon</button>
+          </li>
+        {{/each}}
+        {{else}}No Search Results{{/if}}
+      </ul>
+    </div>
+  </div>
 </div>

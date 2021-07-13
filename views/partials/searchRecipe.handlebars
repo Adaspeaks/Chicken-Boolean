@@ -1,44 +1,49 @@
-  <form>
-    <div id="searchArea">
-      <label for="recipeSearch">Search for a Recipe</label>
+<form>
+  <div id="searchArea">
+    <div class="row my-1 keyWordSearch">
       <input
         type="text"
         class="recipeQuery"
         id="recipeSearch"
         placeholder="Search for a Recipe"
       />
-      <input
-        type="checkbox"
-        id="vegetarian"
-        name="vegetarian"
-        value="Vegetarian"
-      />
-      <label for="vegetarian"> Want vegetarian meals?</label>
-      <br />
-      <input type="checkbox" id="vegan" name="vegan" value="Vegan" />
-      <label for="vegan"> Want vegan meals?</label>
-      <br />
-      <input
-        type="checkbox"
-        id="glutenFree"
-        name="glutenFree"
-        value="GlutenFree"
-      />
-      <label for="glutenFree"> Want gluten-free meals?</label>
-      <input
-        type="checkbox"
-        id="dairyFree"
-        name="dairyFree"
-        value="DairyFree"
-      />
-      <label for="DairyFree"> Want dairy-free meals?</label>
+    </div>
 
+    <div class="col">
+      <select class="form-select my-1" aria-label="Default select example" id="vegSel">
+        <option selected>Vegan or vegetarian?</option>
+        <option value="1">Vegan</option>
+        <option value="2">Vegetarian</option>
+        <option value="3">None</option>
+      </select>
+    </div>
+
+    <div class="col d-flex justify-content-around">
+      <div>
+        <input
+          class="form-check-input my-1"
+          type="checkbox"
+          id="glutenFree"
+          name="glutenFree"
+          value="GlutenFree"
+        />
+        <label for="glutenFree"> Want gluten-free meals?</label>
+      </div>
+      <div>
+        <input
+          class="form-check-input my-1"
+          type="checkbox"
+          id="dairyFree"
+          name="dairyFree"
+          value="DairyFree"
+        />
+        <label for="DairyFree"> Want dairy-free meals?</label>
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-5 mx-auto my-2">
       <button type="button" id="searchBtn" value="Search">
         Search
       </button>
     </div>
-  </form>;
-
-  <script>
-    src="./public/js/recipeSearch.js"
-  </script>
+  </div>
+</form>;
