@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const saveRecipeBtn = document.getElementsByClassName("saveBtn");
 
 saveRecipeBtn.addEventListener("click", function(){
