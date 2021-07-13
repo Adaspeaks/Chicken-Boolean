@@ -1,8 +1,11 @@
 h1 a:link, 
 h1 a:visited, 
-h1 a:active, 
-h1 a:hover {
+h1 a:active {
     text-decoration: none;
+}
+
+h1 a:hover {
+    color: black;
 }
 
 h1 a {
@@ -10,11 +13,48 @@ h1 a {
     font-size: 90px;
 }
 
-/* .card-title {
+.card {
     background-color: burlywood;
+}
+
+.card-body {
+    background-color: cornsilk;
+    border: solid;
+    border-width: 2px;
+    margin-bottom: 10px;    
+}
+
+/* #mission,
+#recipe_list {
+    border: solid;
+    margin-bottom: 10px;    
 } */
 
-#mission,
-#recipe_list {
-    border: solid
+/* body {
+    background-color: cyan;
+} */
+
+nav a {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+button {
+    border-radius: 15px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: fangsong;
+}
+
+p {
+    font-family: serif;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+#header {
+    margin-top: 10px;
 }
