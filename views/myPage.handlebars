@@ -6,7 +6,6 @@
       <ul class="list-group list-group-flush border-dark border-2" id="recipe_list">
         {{#each recipes as |recipe|}}
           <a class="list-group-item">{{recipe.title}}
-            {{!-- create save button button, find icon details --}}
             <button class="button deleteBtn">Delete</button>
           </a>
         {{/each}}
@@ -15,9 +14,9 @@
     </div>
   </div>
     
-    <div class="col card w-80 m-3" id="missionCard">
+    <div class="col card w-80 m-3" id="summaryRecipe">
       <h2 class="card-title">Recipe Summary</h2>
-      <div class="container card-body border-dark border-2" id="mission">
+      <div class="container card-body border-dark border-2" id="summary">
         <p>{{recipe.summary}}</p>
       </div>
     </div>
