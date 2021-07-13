@@ -1,16 +1,47 @@
 const search = document.querySelector("#recipeSearch");
 const searchButton = document.querySelector("#searchBtn");
+const recipeList = document.querySelector("#recipe_list");
 
-searchButton.addEventListener("click", function(){
-    let dairyFree = document.getElementById("dairyFree").value;
-    let glutenFree = document.getElementById("glutenFree").value;
-    let searchInput = document.getElementById("recipeSearch").value;
-    let diet = document.getElementById("vegSel").value
-    getRecipes(dairyFree,glutenFree,searchInput,diet);
-    
+searchButton.addEventListener("click", function () {
+  let dairy = document.getElementById("dairyFree").value;
+  let gluten = document.getElementById("glutenFree").value;
+  let searchTerm = document.getElementById("recipeSearch").value;
+  let diet = document.getElementById("vegSel").value;
+  const query = new URLSearchParams({
+    dairy,
+    gluten,
+    searchTerm,
+    diet,
+  });
+
+  getRecipes(query.toString());
 });
 
 const getRecipes = async (searchTerms) => {
-    let response = await fetch(`api/search/${searchTerms}`);
-    response = await response.json();
+  let response = await fetch(`api/search/?${searchTerms}`);
+  response = await response.json();
+  recipeList.innerHTML = "";
+  response.forEach((recipe) => {
+    const li = document.createElement("li");
+    li.textContent = recipe.title;
+    li.classList.add("list-group-item");
+
+    const button = document.createElement("button");
+    button.textContent = "Save";
+    button.classList.add("button", "saveBtn");
+    button.setAttribute("data-recipe", JSON.stringify(recipe));
+
+    li.append(button);
+    recipeList.append(li);
+  });
 };
+
+recipeList.addEventListener("click", function (e) {
+  if (!e.target.matches(".saveBtn")) return;
+
+  fetch("/api/search/", {
+    method: "POST",
+    headers: { "content-Type": "application/json" },
+    body: e.target.dataset.recipe,
+  });
+});

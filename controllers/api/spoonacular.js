@@ -3,12 +3,12 @@ const { User, Steps, Recipe } = require("../../models");
 const axios = require("axios").default;
 const withAuth = require("../../utils/auth");
 
-router.get(`/:`, async (req, res) => {
+router.get(`/`, async (req, res) => {
   try {
-    const dairy = req.params.dairyFree;
-    const gluten = req.params.glutenFree;
-    const searchTerm = req.params.searchTerm;
-    const diet = req.params.diet;
+    const dairy = req.query.dairyFree;
+    const gluten = req.query.glutenFree;
+    const searchTerm = req.query.searchTerm;
+    const diet = req.query.diet;
 
     const recipeData = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOON_API}&addRecipeInformation=true&diet=${diet}&intolerance=${gluten},${dairy}query=${searchTerm}`
