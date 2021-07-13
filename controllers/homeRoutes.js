@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
+const db = require("../models");
 
 router.get("/", async (req, res) => {
   res.render("homepage", {
@@ -37,8 +38,12 @@ router.get("/search", withAuth, async (req, res) => {
 
 router.get("/mypage", withAuth, async (req, res) => {
   try {
+    const recipes = await db.Recipe.findAll({
+      where: { user_id: req.session.user_id },
+    });
     res.render("myPage", {
       logged_in: req.session.logged_in,
+      recipes: recipes.map((recipe) => recipe.get({ plain: true })),
     });
   } catch (err) {
     res.status(500).json(err);
