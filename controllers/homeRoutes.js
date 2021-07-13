@@ -1,8 +1,13 @@
+// Call upon express
 const router = require("express").Router();
+// Call upon User model for user information
 const { User } = require("../models");
+// Verify if called upon user is registered
 const withAuth = require("../utils/auth");
+// Defines db (database) through the models built in models/index.js
 const db = require("../models");
 
+// 
 router.get("/", async (req, res) => {
   res.render("homepage", {
     logged_in: req.session.logged_in,
