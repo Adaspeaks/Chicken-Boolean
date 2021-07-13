@@ -7,36 +7,41 @@ Recipe.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      AllowNull: false,
+      allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
+    },
+    recipe_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     title: {
       type: DataTypes.STRING,
-      AllowNull: false,
+      allowNull: false,
     },
     url: {
       type: DataTypes.STRING,
-      AllowNull: false,
+      allowNull: false,
     },
     readyInMinutes: {
       type: DataTypes.INTEGER,
-      AllowNull: false,
+      allowNull: false,
     },
     is_vegetarian: {
       type: DataTypes.BOOLEAN,
-      AllowNull: false,
+      allowNull: false,
     },
     is_vegan: {
       type: DataTypes.BOOLEAN,
-      AllowNull: false,
+      allowNull: false,
     },
     is_glutenFree: {
       type: DataTypes.BOOLEAN,
-      AllowNull: false,
+      allowNull: false,
     },
     is_dairyFree: {
       type: DataTypes.BOOLEAN,
-      AllowNull: false,
+      allowNull: false,
     },
   },
   {

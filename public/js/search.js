@@ -29,17 +29,31 @@ const getRecipes = async (searchTerms) => {
     const button = document.createElement("button");
     button.textContent = "Save";
     button.classList.add("button", "saveBtn");
-    button.setAttribute("data-recipe", JSON.stringify(recipe));
+    button.setAttribute(
+      "data-recipe",
+      JSON.stringify({
+        title: recipe.title,
+        recipe_id: recipe.id,
+        url: recipe.sourceUrl,
+        readyInMinutes: recipe.readyInMinutes,
+        is_vegetarian: recipe.vegetarian,
+        is_vegan: recipe.vegan,
+        is_glutenFree: recipe.glutenFree,
+        is_dairyFree: recipe.dairyFree,
+      })
+    );
 
     li.append(button);
     recipeList.append(li);
   });
 };
 
+// Listen for click on the save button
 recipeList.addEventListener("click", function (e) {
   if (!e.target.matches(".saveBtn")) return;
 
-  fetch("/api/search/", {
+  // POST - /api/recipe
+  fetch("/api/recipe", {
     method: "POST",
     headers: { "content-Type": "application/json" },
     body: e.target.dataset.recipe,
