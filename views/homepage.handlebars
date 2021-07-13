@@ -1,9 +1,8 @@
-{{! Place mission and search recipe area here }}
 <div class="container row">
     <div class="col card w-80 m-3" id="missionCard">
       <h2 class="card-title">Chicken Boolean Mission</h2>
-      <div class="card-body border-dark border-2">
-        <p class>Here at Chicken Boolean, we know having the same meal day in and day
+      <div class="container card-body border-dark border-2" id="mission">
+        <p>Here at Chicken Boolean, we know having the same meal day in and day
           out can get old. So we make it easy for you to add some variety in your
           daily meals.</p>
         <p>By using our state of the art search engine, you can find the right meal
@@ -21,7 +20,7 @@
         {{#each recipes as |recipe|}}
           <li class="list-group-item">{{recipe.title}}
             {{!-- create save button button, find icon details --}}
-            <button class="button saveBtn">Icon</button>
+            <button class="button saveBtn">Save</button>
           </li>
         {{/each}}
         {{else}}No Search Results{{/if}}
